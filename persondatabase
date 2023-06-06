@@ -1,0 +1,156 @@
+Create a package named persondatabase. It contains two different classes namely, Student
+and Employee. These classes are derived from a base class Person. Define another two
+classes Staff and Faculty. Staff and Faculty classes are derived from Employee class. The
+Person class has name and age data and display method to display the name and age of a
+person. The Student class has data like rollNo and branch and display method to display
+name, age, rollNo and branch of the student. Stuff has ecNo and doj(date of joining) data
+and display method to display name, age, ecNo, doj of the stuff. Faculty has designation
+data (Assistant Professor, Associate Professor and Professor) and display method to display
+the name, age, ecNo, doj and designation of the Faculty. Staff has designation data
+(Technical and Clerical) and display method to display the name, age, ecNo, doj and
+designation of the Staff. Each class have their own constructor to initialize the value of each
+data field. Finally create an object of each class and print the values (pass arguments in the
+runtime via terminal) of all objects in that Main Class.
+
+CODE:
+
+Person
+package persondatabase;
+public class Person
+{
+String name;
+int age;
+public Person(String n,int a)
+{
+name=n;
+
+age=a;
+}
+public void display()
+{
+System.out.println(&quot;Name: &quot;+name);
+System.out.println(&quot;Age: &quot;+age);
+}
+
+}
+
+Staff
+package persondatabase;
+public class Staff extends Employee
+{
+String designation;
+String ecNo;
+String doj;
+public Staff(String name,int age,String designation, String ecNo,String doj)
+{
+super(name,age);
+this.designation=designation;
+this.ecNo=ecNo;
+this.doj=doj;
+}
+public void display()
+{
+System.out.println(&quot;Staff Details:&quot;);
+super.display();
+System.out.println(&quot;Designation: &quot;+designation);
+
+System.out.println(&quot;ecNo: &quot;+ecNo);
+System.out.println(&quot;Date of Joining (doj): &quot;+doj);
+
+}
+}
+Faculty
+package persondatabase;
+public class Faculty extends Employee
+{
+String designation;
+String ecNo;
+String doj;
+public Faculty(String name,int age,String designation,String ecno,String doj)
+{
+super(name,age);
+this.designation=designation;
+this.ecNo=ecno;
+this.doj=doj;
+}
+public void display()
+{
+System.out.println(&quot;Faculty Details:&quot;);
+super.display();
+System.out.println(&quot;Designation: &quot;+designation);
+System.out.println(&quot;ecNo: &quot;+ecNo);
+System.out.println(&quot;Date of Joining (doj): &quot;+doj);
+}
+
+}
+
+Stuff
+package persondatabase;
+public class Stuff extends Employee
+{
+String ecNo;
+String doj;
+public Stuff(String name,int age,String ecNo,String doj)
+{
+super(name,age);
+this.ecNo=ecNo;
+this.doj=doj;
+}
+public void display()
+{
+System.out.println(&quot;Stuff Details:&quot;);
+super.display();
+System.out.println(&quot;ecNo: &quot;+ecNo);
+System.out.println(&quot;Date of Joining (doj): &quot;+doj);
+}
+}
+Student
+package persondatabase;
+public class Student extends Person
+{
+String roll;
+String branch;
+public Student(String name,int age,String roll,String branch)
+{
+super(name,age);
+
+this.roll=roll;
+this.branch=branch;
+}
+public void display()
+{
+System.out.println(&quot;Student Details:&quot;);
+super.display();
+System.out.println(&quot;RollNo: &quot;+roll);
+System.out.println(&quot;Branch: &quot;+roll);
+}
+}
+Details
+import persondatabase.Student;
+import persondatabase.Stuff;
+import persondatabase.Staff;
+import persondatabase.Faculty;
+
+class Details
+{
+public static void main(String args[])
+{
+
+Student student=new Student(&quot;stdent&quot;,19,&quot;AP20110010183&quot;,&quot;CSE&quot;);
+Faculty faculty=new Faculty(&quot;faculty&quot;,40,&quot;Assistant Proffesor&quot;,&quot;02-10-2021&quot;,&quot;16-08-
+2021&quot;);
+Staff staff=new Staff(&quot;staff&quot;,25,&quot;Technical&quot;,&quot;02-10-2021&quot;,&quot;16-08-2021&quot;);
+Stuff stuff=new Stuff(&quot;stuff&quot;,25,&quot;02-10-2021&quot;,&quot;16-08-2021&quot;);
+
+student.display();
+
+System.out.println();
+faculty.display();
+System.out.println();
+staff.display();
+System.out.println();
+stuff.display();
+System.out.println();
+}
+
+}
